@@ -4,32 +4,98 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
-        xmlns:header="clr-namespace:WpfApp1.control"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="45px">
+        Title="MainWindow" Height="800" Width="500"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        MouseDown="Window_MouseDown"
+        ResizeMode="NoResize">
 
-            </RowDefinition>
-            <RowDefinition>
+    <Border CornerRadius="50"
+            BorderThickness="3">
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#462AD8" Offset="0"/>
+                <GradientStop Color="#DA34AE" Offset="0.75"/>
+                <GradientStop Color="#8A16C1" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                <GradientStop Color="#cee1ff" Offset="0"/>
+                <GradientStop Color="#77acff" Offset="0.65"/>
+            </LinearGradientBrush>
+        </Border.Background>
 
-            </RowDefinition>
-            <RowDefinition Height="30px">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/> 
+                <RowDefinition/> <!--1-->
+                <RowDefinition Height="250"/> <!--2-->
+            </Grid.RowDefinitions>
 
-            </RowDefinition>
-        </Grid.RowDefinitions>
-        <header:header></header:header>
 
-        <!--body-->
-        <Grid Grid.Row="1" Background="#7ea5ff">
-            <Label Grid.Row="1" x:Name="temp" Content="34" FontSize="50" FontWeight="Bold" VerticalContentAlignment="Top" HorizontalAlignment="Center"
-                Margin="0, 55, 0, -13"/>
-            <Image Grid.Row="1" x:Name="weatherIcon" Source="C:\Users\notel\OneDrive\Documents\source\repo\WpfApp1\img\partCloud.jpg"
-                Height="100" RenderTransformOrigin="0.498,0.566"/>
-            <Label  x:Name="weatherName" Content="Partialy cloudy" FontSize="40" FontWeight="DemiBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"
-                    Margin="0,-14,0,74" Grid.RowSpan="2"/>
+            <!--head-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Search..." Foreground="Black" FontSize="20" Grid.Column="0"
+                           VerticalAlignment="Center"
+                           Margin="30, 0, 0, 0"/>
+
+                <Button x:Name="btnMinimize" BorderThickness="0" Content="-" Background="#28AEED" 
+                        Foreground="White"
+                        FontSize="16" FontFamily="Monserrat" Grid.Column="1" Click="Minimize">
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="18" Height="18" CornerRadius="9" 
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+
+
+                <Button x:Name="btnClose" BorderThickness="0" Content="x" Background="#DA34AE" 
+                        Foreground="White"
+                        FontSize="16" FontFamily="Monserrat" Grid.Column="2" Click="Close">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="18" Height="18" CornerRadius="9" 
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+            
+            <!--body-->
+            <Grid Grid.Row="2" >
+                <Grid.Effect>
+                    <BlurEffect Radius="5" KernelType="Gaussian"/>
+                </Grid.Effect>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                               
+            </Grid>
+            
         </Grid>
-        
-    </Grid>
+    </Border>
 </Window>
