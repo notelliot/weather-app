@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Security.Cryptography;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -37,6 +38,11 @@ namespace WpfApp1
         private void Close(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void typing(object sender, RoutedEventArgs e)
+        {
+            search.Content = string.Empty;
         }
     }
 }
