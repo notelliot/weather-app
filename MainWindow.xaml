@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="500"
+        Title="MainWindow" Height="800" Width="500" 
         AllowsTransparency="True"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         MouseDown="Window_MouseDown"
         ResizeMode="NoResize">
+    <!--height=800 width=500-->
 
     <Border CornerRadius="50" BorderThickness="3">
         <Border.BorderBrush>
@@ -45,17 +46,21 @@
                     <ColumnDefinition Width="25"/>
                 </Grid.ColumnDefinitions>
                 
-                <Label x:Name="search" Content="Search..." Foreground="Black" FontSize="20" Grid.Column="0"
+                <Label x:Name="search" Content="Search..." Foreground="Black" FontSize="20"
+                           Grid.Column="0"
                            VerticalAlignment="Center"
                            Margin="30, 0, 0, 0"/>
                 <TextBox x:Name="searchBox" Foreground="Black" FontSize="20" Grid.Column="0"
                            VerticalAlignment="Center"
                            Margin="30, 0, 0, 0" Background="Transparent" TextChanged="typing" 
                          BorderBrush="Transparent"/>
+                <Button Content="Search" Width="50" HorizontalAlignment="Right" Height="20" 
+                        Background="Transparent" BorderBrush="Transparent" Click="_search"></Button>
 
                 <Button x:Name="btnMinimize" BorderThickness="0" Content="-" Background="#28AEED" 
                         Foreground="White"
                         FontSize="16" FontFamily="Monserrat" Grid.Column="1" Click="Minimize">
+                 
 
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
@@ -83,6 +88,8 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
+                
+                
             </Grid>
 
             <!--upper body-->
@@ -95,11 +102,13 @@
 
                 <Label x:Name="cityName" Content="Moscow" VerticalAlignment="Center" 
                        HorizontalAlignment="Center" FontSize="50" FontStyle="Normal"
-                       Margin="0, 50, 0, 0"/>
+                       Margin="0, 5, 0, 0"/>
                 <Image Grid.Row="1" x:Name="weatherIcon" 
                        Source="C:\Users\notel\OneDrive\Documents\source\repo\WpfApp1\img\rain.png"/>
                 <Label Grid.Row="2" x:Name="temp" Content="34" HorizontalAlignment="Center"
-                       VerticalAlignment="Center" FontSize="50" Margin="0, 0, 0, 50"/>
+                       VerticalAlignment="Center" FontSize="45" Margin="0, 50, 0, 0" Height="60"/>
+                <Label Grid.Row="2" x:Name="des" Content="heavy rain" FontSize="40"
+                       HorizontalAlignment="Center" Margin="0, 0, 0, 54" Height="65"/>
             </Grid>
             
             <!--lower body-->
@@ -134,7 +143,7 @@
                 <Image Grid.Row="0" Grid.Column="2" 
                        Source="C:\Users\notel\OneDrive\Documents\source\repo\WpfApp1\img\pressure.png"
                        Height="65" Margin="0, 15, 0, 0"/>
-                <Label Grid.Row="1" Grid.Column="2" Content="1013Hpa" HorizontalAlignment="Center"
+                <Label x:Name="press" Grid.Row="1" Grid.Column="2" Content="1013Hpa" HorizontalAlignment="Center"
                        VerticalAlignment="Center" Margin="0, 0, 0, 50" FontSize="30" />
 
             </Grid>
