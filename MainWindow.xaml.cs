@@ -50,9 +50,9 @@ namespace WpfApp1
         private void _search(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Height = 800;
-            double height = SystemParameters.WorkArea.Height;
-            double width = SystemParameters.WorkArea.Width;
-            this.Top = (height - this.Height) / 2;
+             double height = SystemParameters.WorkArea.Height;
+            double width = SystemParameters.WorkArea.Width;            
+            this.Top = (height - this.Height) / 2;            
             this.Left = (width - this.Width) / 2;
             string? CityName = (string)searchBox.Text;
             int id = 0;
@@ -63,7 +63,7 @@ namespace WpfApp1
             };
 
             var client = new HttpClient();
-            client.BaseAddress = new Uri("https://api.openweathermap.org/data/2.5/weather?q=" + CityName + "&appid={you your key}&units=metric");
+            client.BaseAddress = new Uri("https://api.openweathermap.org/data/2.5/weather?q=" + CityName + "&appid=a7f3efc4c67aa47c5c0f8b59ed8fa904&units=metric");
 
             var json = JsonSerializer.Serialize(api);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
