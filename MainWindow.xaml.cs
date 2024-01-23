@@ -63,7 +63,7 @@ namespace WpfApp1
             };
 
             var client = new HttpClient();
-            client.BaseAddress = new Uri("https://api.openweathermap.org/data/2.5/weather?q=" + CityName + "&appid=a7f3efc4c67aa47c5c0f8b59ed8fa904&units=metric");
+            client.BaseAddress = new Uri("https://api.openweathermap.org/data/2.5/weather?q=" + CityName + "&appid={api}&units=metric");
 
             var json = JsonSerializer.Serialize(api);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
